@@ -32,6 +32,7 @@ void exibeMatriz(int lin, int col, int m[lin][col])
         }
     }
 }
+//Por algum motivo, 20 linhas estava causando 'exceção de ponto flutuamte'
 void geraVetor(int lin, int col, int m[lin][col], int vLinha[lin], int vColuna[col])
 {
     //'contLinha' e 'contColuna' serao usados para contar a quantidade de multiplos
@@ -39,9 +40,9 @@ void geraVetor(int lin, int col, int m[lin][col], int vLinha[lin], int vColuna[c
     //preenchendo vLinha
     for(i=0;i<lin;i++,contLinha=0)
     {
-        for(j=0;j<col;j++)
+        for(j=1;j<col;j++)
         {
-            if((m[i][j]!=m[i][0])&&(m[i][j]%m[i][0]==0))
+            if(m[i][j]%m[i][0]==0)
             {
                 contLinha++;
             }
@@ -49,12 +50,12 @@ void geraVetor(int lin, int col, int m[lin][col], int vLinha[lin], int vColuna[c
         //armazenando a quantidade de multiplos
         vLinha[i]=contLinha;
     }
-    //preenchendo vColuna(MANUTENCAO)
+    //preenchendo vColuna
     for(j=0;j<col;j++,contColuna=0)
     {
-        for(i=0;i<lin;i++)
+        for(i=1;i<lin;i++)
         {
-            if((m[i][j]!=m[0][j])&&(m[i][j]%m[0][j]==0))
+            if(m[i][j]%m[0][j]==0)
             {
                 contColuna++;
             }
@@ -66,7 +67,6 @@ void geraVetor(int lin, int col, int m[lin][col], int vLinha[lin], int vColuna[c
 void exibeVetor(int tam, int v[tam])
 {
     int i;
-    printf("\n");
     for(i=0;i<tam;i++)
     {
         printf("%i ", v[i]);
@@ -74,17 +74,17 @@ void exibeVetor(int tam, int v[tam])
 }
 int main()
 {
-    int mat[20][10], vLinha[20], vColuna[10];
+    int mat[10][10], vLinha[10], vColuna[10];
     //preenchendo e exibindo 'mat'
-    geraMatrizAleatoria(20, 10, mat, 30);
+    geraMatrizAleatoria(10, 10, mat, 30);
     printf("\nMatriz:\n");
-    exibeMatriz(20, 10, mat);
+    exibeMatriz(10, 10, mat);
     //gerando vetores
-    geraVetor(20, 10, mat, vLinha, vColuna);
+    geraVetor(10, 10, mat, vLinha, vColuna);
     //exibindo vetores:
-    printf("\nvLinha:");
-    exibeVetor(20, vLinha);
-    printf("\nvColuna:");
+    printf("\nvLinha: ");
+    exibeVetor(10, vLinha);
+    printf("\nvColuna: ");
     exibeVetor(10, vColuna);
     return 0;
 }
