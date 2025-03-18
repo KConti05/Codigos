@@ -30,16 +30,27 @@ void exibeMatriz(int lin, int col, int m[lin][col])
         }
     }
 }
+void zeraVetor(int tam, int v[tam])
+{
+    int i;
+    for(i=0;i<tam;i++)
+    {
+        v[i]=0;
+    }
+}
 //funcao, questao 2 lista de matrizes V modificada:
-int trocaColunas(int lin, int col, int m[lin][col], int col1, int col2)
+void trocaEntreColunas(int lin, int col, int m[lin][col], int col1, int col2)
 {
     //o vetor 'vPassa' sera usado para auxiliar a passagem dos elementos de uma coluna a outra.
-    int i, vPassa[lin];
-    //conferindo se a troca pode ser feita
-    if((col1>0&&col1<col)&&(col2>0&&col2<col)&&(col1!=col2))
+    int i,vPassa[lin];
+    //ajeitando colunas
+    col1--;
+    col2--;
+    //realizando trocas
+    for(;col1<col2;col1++,col2--)
     {
         zeraVetor(lin,vPassa);
-        //armazenando elementos de col1 no 'vPassa'
+        //armazenando elementos de 'col1' no 'vPassa'
         for(i=0;i<lin;i++)
         {
             vPassa[i]=m[i][col1];
@@ -47,12 +58,25 @@ int trocaColunas(int lin, int col, int m[lin][col], int col1, int col2)
         //realizando as trocas
         for(i=0;i<lin;i++)
         {
-            m[lin-i-1][col1]=m[i][col2];
+            m[i][col1]=m[i][col2];
             m[i][col2]=vPassa[i];
         }
-        //avisando que as trocas foram feitas
-        return 1;
     }
-    //avisando caso a troca nao pôde ser feita
+}
+int main()
+{
+    int mat[5][8], colunaInicial, colunaFinal;
+    //preenchendo e exibindo matriz 'mat'
+    geraMatrizAleatoria(5, 8, mat, 10);
+    printf("\nMatriz base:\n");
+    exibeMatriz(5, 8, mat);
+    //recebendo colunas para trocas
+    printf("\nColuna Inicial das trocas: ");scanf("%i",&colunaInicial);
+    printf("\nColuna Final das trocas: ");scanf("%i",&colunaFinal);
+    //realizando trocas
+    trocaEntreColunas(5, 8, mat, colunaInicial, colunaFinal);
+    //exibindo nova matriz
+    printf("\nMatriz trocada:\n");
+    exibeMatriz(5, 8, mat);
     return 0;
 }
