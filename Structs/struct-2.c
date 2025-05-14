@@ -1,3 +1,14 @@
+/*Suponha a existência de um vetor de tamanho
+TAM, cada posição armazenando o nome da
+pessoa e a sua data de aniversário
+(representada por um struct do tipo TData,
+contendo os campos dia e mes). Pede-se o
+desenvolvimento das seguintes funções:
+ Determinar a quantidade de pessoas que
+fazem aniversário no mês M;
+ Exibir os nomes de todas pessoas que fazem
+aniversário entre as datas d1 e d2, ambas
+do tipo TData.*/
 
 #include <stdio.h>
 #define TAM 5
@@ -12,7 +23,7 @@ typedef struct
   TData aniversario;
 } TPessoa;
 
-int pessoasEmMes(int tamanho,TPessoa string[tamanho],int mes)
+int pessoasEmMes(int tamanho,TPessoa vetor[tamanho],int mes)
 {
   int i,qtdPessoas=0;
   for(i=0;i<tamanho;i++)
@@ -24,6 +35,7 @@ int pessoasEmMes(int tamanho,TPessoa string[tamanho],int mes)
   }
   return qtdPessoas;
 }
+void nomesEntreDatas(int tamanho, TPessoas vetor[tamanho],  
 int main()
 {
   int i;  
