@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #define TAM 5
 typedef struct
@@ -13,7 +14,15 @@ typedef struct
 
 int pessoasEmMes(int tamanho,TPessoa string[tamanho],int mes)
 {
-  
+  int i,qtdPessoas=0;
+  for(i=0;i<tamanho;i++)
+  {
+    if(string[i].aniversario.mes==mes)
+    {
+      qtdPessoas++;
+    }
+  }
+  return qtdPessoas;
 }
 int main()
 {
