@@ -10,19 +10,19 @@ int particiona(int *vet, int inicio, int fim)//para esta funcão é mais interes
   while(inicio<fim)
   {
     //procurando um elemento maior que o 'compara', do inicio para o fim:
-    while(inicio<fim && v[inicio]<=compara)
+    while(inicio<fim && vet[inicio]<=compara)
     {
       inicio+=1;
     }
     //procurando um elemento menor que o 'compara', do fim para o inicio:
-    while(inicio<fim && v[fim]>=compara)
+    while(inicio<fim && vet[fim]>=compara)
     {
       fim-=1;
     }
     //realizando a troca:
-    passa=v[inicio];
-    v[inicio]=v[fim];
-    v[fim]=passa;
+    passa=vet[inicio];
+    vet[inicio]=vet[fim];
+    vet[fim]=passa;
   }
 }
 void quickSort(int *vet, int inicio, int fim)
