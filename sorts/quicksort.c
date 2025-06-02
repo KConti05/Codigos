@@ -27,4 +27,12 @@ int particiona(int *vet, int inicio, int fim)//para esta funcão é mais interes
 }
 void quickSort(int *vet, int inicio, int fim)
 {
+  if(inicio<fim) //caso base
+  {
+    int pos=particiona(vet, inicio, fim); //variavel que salva a posicao da divisoria do vetor.
+    //Metade inferior a 'compara' de particiona
+    quickSort(vet, inicio, pos-1);
+    //metade superior a 'compara'
+    quickSort(vet, pos, fim);
+  }
 }
