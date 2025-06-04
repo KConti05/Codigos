@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Empresa</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    section {
+      padding: 60px 0;
+    }
+    .navbar-nav .nav-link {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Minha Empresa</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Home -->
+<section id="home" class="bg-light text-center mt-5">
+  <div class="container">
+    <h1 class="display-5 fw-bold">Bem-vindo à Minha Empresa</h1>
+    <p class="lead">Excelência em serviços e soluções para você.</p>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Serviços</h5>
+            <p class="card-text">Soluções completas para sua empresa.</p>
+            <a href="#contato" class="btn btn-primary">Saiba mais</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Notícias</h5>
+            <p class="card-text">Fique por dentro das novidades do setor.</p>
+            <a href="#" class="btn btn-primary">Leia mais</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Produtos</h5>
+            <p class="card-text">Conheça nossos produtos inovadores.</p>
+            <a href="#" class="btn btn-primary">Ver produtos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sobre -->
+<section id="sobre" class="bg-white">
+  <div class="container">
+    <h2 class="text-center mb-5">Sobre Nós</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h4>Quem somos</h4>
+        <p>Somos uma empresa focada em inovação, qualidade e resultados. Nossa equipe é formada por profissionais experientes e apaixonados pelo que fazem.</p>
+        <h4>Missão</h4>
+        <p>Oferecer soluções eficientes que gerem valor aos nossos clientes.</p>
+        <h4>Visão</h4>
+        <p>Ser referência no nosso segmento até 2030.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="https://via.placeholder.com/500x300" class="img-fluid rounded" alt="Sobre a empresa">
+      </div>
+    </div>
+
+    <hr class="my-5">
+
+    <h4 class="text-center mb-4">Nossa História</h4>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">2015 - Fundação da empresa</li>
+      <li class="list-group-item">2018 - Primeiros contratos nacionais</li>
+      <li class="list-group-item">2022 - Expansão internacional</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Contato -->
+<section id="contato" class="bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Fale Conosco</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <form>
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="seu@email.com">
+          </div>
+          <div class="mb-3">
+            <label for="mensagem" class="form-label">Mensagem</label>
+            <textarea class="form-control" id="mensagem" rows="4" placeholder="Escreva sua mensagem"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h5>Endereço</h5>
+        <p>Rua Exemplo, 123 - Centro<br>Cidade/Estado - CEP 00000-000</p>
+        <h5>Telefone</h5>
+        <p>(00) 1234-5678</p>
+        <h5>Email</h5>
+        <p>contato@minhaempresa.com</p>
+
+        <!-- Mapa Opcional -->
+        <div class="mt-4">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Rodapé -->
+<footer class="bg-dark text-white text-center py-4">
+  <div class="container">
+    <p class="mb-0">© 2025 Minha Empresa. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
