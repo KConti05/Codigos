@@ -26,8 +26,16 @@ void calculaCpcCont(TInsumo *vCurso, float *vCpc) //recebe o vetor de cursos lid
     }
 }
 //funcao para calculo de IGC continuo:
-float calculaIgcCont(TInsumo *vCurso, float *vCpc)
+float calculaIgcCont(TInsumo *vCurso, float *vCpc) //recebe os vetores vCurso e vCpc e retorna o valor do igc
 {
+   int i, totAlun=0; //totAlun sera usado no calculo da medio do igc
+   float igc=0;
+   for(i=0;i<strlen(vCurso);i++) //roda os vetores progressivamente calculando igc e totAlun
+   {
+      igc+=vCpc[i]*vCurso[i].nAlunos;
+      totAlun+=vCurso[i].nAlunos;
+   }
+   return igc/totAlun;
 }
 //funcao para calculo de CPC e IGC faixa:
 int calculaFaixa()
