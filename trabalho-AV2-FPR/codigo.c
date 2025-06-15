@@ -64,7 +64,7 @@ int calculaIgcFaixa(float igc)//recebe igc e retorna sua faixa
 //funcao para calculo de CPC faixa e qualidades:
 void calculaCpcFaixaQualid(float *vCpc, int *mFaixa) //preenche a matriz vFaixa rodando o de vCpcs e determinando a faixa de cada curso junto da qualidade(0-insatisfatorio,1-satisfatorio)
 {
-  int i, j;
+  int i;
   //preenchendo vFaixa:
   for(i=0;i<strlen(vCpc);i++)
   {
@@ -123,4 +123,13 @@ void exibeCursos(float igcCont, int igcFaixa, Tinsumo *vCurso, float *vCpc, int 
     }
   }
   printf("\n\nIGC continuo dos Cursos: %.3f\nFaixa do IGC: %i\n",igcCont,igcFaixa);
+}
+int main()
+{
+  //variaveis:
+  int igcFaixa, mFaixa[30][2]; //mFaixa armazena na coluna 0 o valor da Faixa e na coluna 1 a qualidades(0-insatisfatorio, 1-satisfatorio)
+  float igcCont, vCpc[30];
+  char nomeArq[30];
+  TInsumo vCursos[30];
+  return 0;
 }
