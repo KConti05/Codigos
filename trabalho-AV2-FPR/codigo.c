@@ -16,6 +16,22 @@ typedef struct
   int nAlunos;
 } TInsumo;
 
+//fucao para transcrever o arquivo em um vetor do tipo TInsumo
+int transcreveArquivo(char *nomeArq, TInsumo *vCurso) //recebe o arquivo e o vetor, confere se arquivo abre e, abrindo, transcreve para o vetor, por fim retorna se operacao foi feita.
+{
+  int i;
+  FILE* arq;
+  //abrindo arquivo:
+  arq=fopen(nomeArq, "r");
+  //testando se foi aberto:
+  if(!arq)
+  {
+    return 0;
+  }
+  while(fscanf(arq,"%s",&i))
+  {
+  }
+}
 //funcao para calculo de CPC continuo:
 void calculaCpcCont(TInsumo *vCurso, float *vCpc) //recebe o vetor de cursos lidos e um vetor para armazenar os CPCs dos cursos
 {
@@ -96,7 +112,7 @@ void calculaCpcFaixaQualid(float *vCpc, int *mFaixa) //preenche a matriz vFaixa 
   }   
 }
 //funcao para exibir todos os cursos
-void exibeCursos(float igcCont, int igcFaixa, Tinsumo *vCurso, float *vCpc, int *mFaixa,) //recebe os Cursos, os Cpcs dos cursos, o Igc(continuo e faixa) e a matriz com as faixas e qualidades dos cursos para exibi-los de forma organizada
+void exibeCursos(float igcCont, int igcFaixa, Tinsumo *vCurso, float *vCpc, int *mFaixa) //recebe os Cursos, os Cpcs dos cursos, o Igc(continuo e faixa) e a matriz com as faixas e qualidades dos cursos para exibi-los de forma organizada
 {
   int i, faixas;
   printf("\nCURSOS POR FAIXA DE QUALIDADE:\n");
@@ -127,9 +143,40 @@ void exibeCursos(float igcCont, int igcFaixa, Tinsumo *vCurso, float *vCpc, int 
 int main()
 {
   //variaveis:
-  int igcFaixa, mFaixa[30][2]; //mFaixa armazena na coluna 0 o valor da Faixa e na coluna 1 a qualidades(0-insatisfatorio, 1-satisfatorio)
+  int igcFaixa, anotCursos, mFaixa[30][2]; //mFaixa armazena na coluna 0 o valor da Faixa e na coluna 1 a qualidades(0-insatisfatorio, 1-satisfatorio), anotCursos recebera se o arquivo foi transcrito
   float igcCont, vCpc[30];
-  char nomeArq[30];
+  char sNomeArq[30], sUso[30];
   TInsumo vCursos[30];
+  //recebendo nome do arquivo:
+  printf("\nNome do Arquivo:\n");scanf("%s",nomeArq);
+  //perguntando uso do arquivo:
+  while(sUso!="fim")
+  {
+    printf("\nQual o uso do arquivo?(digite 'adicionar' para adicionar novos cursos, 'exibir' para exibir cursos e 'fim' para encerrar)\n");scanf("%s",sUso); 
+    if(sUso=='exibir')
+    {
+      //transcrevendo arquivo para o vetor
+      anotCursos=transcreveCursos(sNomeArq, vCursos);
+      //testando se arquivo foi aberto e executando
+      if(anotCursos)
+      {
+        //realizando calculos:
+        calculaCpcCont(vCursos, vCpc);
+        calculaCpcFaixaQualid(vCpc, mFaixa);
+        igcCont=calculaIgcCont(vCursos,vCpc);
+        igcFaixa=calculaIgcFaixa(igcCont);
+        //exibindo
+        exibeCursos(igcCont,igcFaixa,vCursos,vCpc,mFaixa);
+      }
+      else
+      {
+        printf("\nArquivo nao pode ser aberto!\n");
+        return 0;
+      }
+    }
+    else if(sUso=='preencher')
+    {
+    }
+  }
   return 0;
 }
