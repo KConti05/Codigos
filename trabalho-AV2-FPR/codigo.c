@@ -19,7 +19,8 @@ typedef struct
 //fucao para transcrever o arquivo em um vetor do tipo TInsumo
 int transcreveArquivo(char *nomeArq, TInsumo *vCurso) //recebe o arquivo e o vetor, confere se arquivo abre e, abrindo, transcreve para o vetor, por fim retorna se operacao foi feita.
 {
-  int i;
+  int i, j, k, inic=0; //i usado para preencher vCurso, j usado para rodar sApoio e k usado para preencher sTranscreve. inic usado para marcar onde sApoio parou de ser lido 
+  char sTranscreve[50], sApoio[10]; //sTrasncreve usado para receber cada linha do arquivo e sApoio ajuda na conversao de cada informacao para tipo int ou float
   FILE* arq;
   //abrindo arquivo:
   arq=fopen(nomeArq, "r");
@@ -28,9 +29,51 @@ int transcreveArquivo(char *nomeArq, TInsumo *vCurso) //recebe o arquivo e o vet
   {
     return 0;
   }
-  while(fscanf(arq,"%s",&i))
+  /*Para transcrever considerei o padrao:
+   - todo codigo de curso tem 4 digitos
+   - toda nota tem 4 digitos(inteiro entre 0 e 9, "." de separacao e 2 casas decimais)*/
+  //transcrevendo:
+  for(i=0;fscanf(arq,"%s",sTranscreve)!=EOF;i++) //roda vCurso enquanto o arquivo nao terminar, preenchendo
   {
+    //lendo sTranscreve:
+    for(j=0;j<strlen(sTranscreve);j++)
+    {
+      if(sTranscreve[j]=="|") //sempre que encontrar um "|", preenche a informacao em sApoio e passa para vCurso, entao marcando onde parou em inic
+      {
+        for(k=inic;k<j;k++)
+        {
+          sTranscreve[k]=sApoio[k];
+        }
+        switch(inic)
+        {
+          case 0: vCurso[i].codCurso=atoi(sApoio);
+                  break;
+          case 6: vCurso[i].notaEnade=atof(sApoio);
+                  break;
+          case 11: vCurso[i].notaIdd=atof(sApoio);
+                  break;
+          case 16: vCurso[i].doutores=atof(sApoio);
+                  break;
+          case 21: vCurso[i].mestres=atof(sApoio);
+                  break;
+          case 26: vCurso[i].regmTrabalho=atof(sApoio);
+                  break;
+          case 31: vCurso[i].orgPedag=atof(sApoio);
+                  break;
+          case 36: vCurso[i].infraestrutura=atof(sApoio);
+                  break;
+          case 41: vCurso[i].amplAcademica=atof(sApoio);
+                  break;
+          case 46: vCurso[i].nAlunos=atoi(sApoio);
+        }
+        inic=j+1;
+      }
+    }
   }
+  //fechando arquivo
+  fclose(arq);
+  //sinalizando realizacao da operacao:
+  return 1;
 }
 //funcao para calculo de CPC continuo:
 void calculaCpcCont(TInsumo *vCurso, float *vCpc) //recebe o vetor de cursos lidos e um vetor para armazenar os CPCs dos cursos
@@ -140,6 +183,18 @@ void exibeCursos(float igcCont, int igcFaixa, Tinsumo *vCurso, float *vCpc, int 
   }
   printf("\n\nIGC continuo dos Cursos: %.3f\nFaixa do IGC: %i\n",igcCont,igcFaixa);
 }
+//funcao para adicionar novos cursos:
+adicionaCursos(char *nomeArq)
+{
+  FILE* arq;
+  //abrindo arquivo:
+  arq=fopen(nomeArq, "r");
+  //testando se foi aberto:
+  if(!arq)
+  {
+    return 0;
+  }
+}
 int main()
 {
   //variaveis:
@@ -174,8 +229,15 @@ int main()
         return 0;
       }
     }
-    else if(sUso=='preencher')
+    else if(sUso=='adicionarr')
     {
+      //preenchendo arquivo
+      anotCursos=adicionaCursos(sNomearq);
+      if(!anotCursos)
+      {
+        printf("\nArquivo nao pode ser aberto!\n");
+        return 0;
+      }
     }
   }
   return 0;
