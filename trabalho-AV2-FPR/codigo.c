@@ -184,17 +184,48 @@ void exibeCursos(float igcCont, int igcFaixa, Tinsumo *vCurso, float *vCpc, int 
   printf("\n\nIGC continuo dos Cursos: %.3f\nFaixa do IGC: %i\n",igcCont,igcFaixa);
 }
 //funcao para adicionar novos cursos:
-adicionaCursos(char *nomeArq)
+int adicionaCursos(char *nomeArq)
 {
+  char sContinua[5]="sim", sEscreve[10];
   FILE* arq;
   //abrindo arquivo:
-  arq=fopen(nomeArq, "r");
+  arq=fopen(nomeArq, "w");
   //testando se foi aberto:
   if(!arq)
   {
     return 0;
   }
+  //adicionando cursos:
+  while(sContinua=="sim")
+  {
+    printf("\n\nCodigo do Curso(4 digitos):\n");scanf("%s",sEscreve);
+    fprintf(arq,"%s|",sEscreve);
+    printf("\nNota do Enade(2 casas decimais, exceto 10. Se 10, 1 casa decimal):\n");scanf("%s",sEscreve);
+    fprintf(arq,"%s|",sEscreve);
+    printf("\nIDD:(2 casas decimais, exceto 10. Se 10, 1 casa decimal):\n");scanf("%s",sEscreve);
+    fprintf(arq,"%s|",sEscreve);
+    printf("\nNota Doutores(2 casas decimais, exceto 10. Se 10, 1 casa decimal):\n");scanf("%s",sEscreve);
+    fprintf(arq,"%s|",sEscreve);
+    printf("\nNota Mestres(2 casas decimais, exceto 10. Se 10, 1 casa decimal):\n");scanf("%s",sEscreve);
+    fprintf(arq,"%s|",sEscreve);
+    printf("\nNota Regime de Trabalho(2 casas decimais, exceto 10. Se 10, 1 casa decimal):\n");scanf("%s",sEscreve);
+    fprintf(arq,"%s|",sEscreve);
+    printf("\nNota Organizacao Didatico-Pedagogica(2 casas decimais, exceto 10. Se 10, 1 casa decimal):\n");scanf("%s",sEscreve);
+    fprintf(arq,"%s|",sEscreve);
+    printf("\nNota Infraestrutura(2 casas decimais, exceto 10. Se 10, 1 casa decimal):\n");scanf("%s",sEscreve);
+    fprintf(arq,"%s|",sEscreve);
+    printf("\nNota Oportunidade de Ampliacao Academica e Profissional(2 casas decimais, exceto 10. Se 10, 1 casa decimal):\n");scanf("%s",sEscreve);
+    fprintf(arq,"%s|",sEscreve);
+    printf("\nQuantidade de Alunos:\n");scanf("%s",sEscreve);
+    fprintf(arq,"%s",sEscreve);
+    printf("\n\nDeseja adicionar mais cursos?"\n);scanf("%s",sContinua);
+  }
+  //fechando arquivo:
+  fclose(arq);
+  //retornando operacao feita:
+  return 1;
 }
+
 int main()
 {
   //variaveis:
