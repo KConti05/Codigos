@@ -38,7 +38,7 @@ int transcreveArquivo(char *nomeArq, TInsumo *vCurso) //recebe o arquivo e o vet
     //lendo sTranscreve:
     for(j=0;j<strlen(sTranscreve);j++)
     {
-      if(sTranscreve[j]=="|") //sempre que encontrar um "|", preenche a informacao em sApoio e passa para vCurso, entao marcando onde parou em inic
+      if(sTranscreve[j]=='|') //sempre que encontrar um "|", preenche a informacao em sApoio e passa para vCurso, entao marcando onde parou em inic
       {
         for(k=inic;k<j;k++)
         {
