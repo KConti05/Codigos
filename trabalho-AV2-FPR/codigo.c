@@ -69,6 +69,7 @@ int transcreveArquivo(char *nomeArq, TInsumo *vCurso) //recebe o arquivo e o vet
         inic=j+1;
       }
     }
+    inic=0;
   }
   //fechando arquivo
   fclose(arq);
