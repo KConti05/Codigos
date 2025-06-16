@@ -197,7 +197,7 @@ int adicionaCursos(char *nomeArq)
     return 0;
   }
   //adicionando cursos:
-  while(strncmp(sContinua,"sim",3)==0)
+  while(strcmp(sContinua,"sim")==0)
   {
     printf("\n\nCodigo do Curso(4 digitos):\n");scanf("%s",sEscreve);
     fprintf(arq,"%s|",sEscreve);
@@ -237,7 +237,7 @@ int main()
   //recebendo nome do arquivo:
   printf("\nNome do Arquivo:\n");scanf("%s",sNomeArq);
   //perguntando uso do arquivo:
-  while(strncmp(sUso,"fim",15)!=0)
+  while(strcmp(sUso,"fim")!=0)
   {
     printf("\nQual o uso do arquivo?(digite 'adicionar' para adicionar novos cursos, 'exibir' para exibir cursos e 'fim' para encerrar)\n");scanf("%s",sUso); 
     if(strncmp(sUso,"exibir",15)==0)
