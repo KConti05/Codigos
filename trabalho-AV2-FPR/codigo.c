@@ -25,7 +25,7 @@ int transcreveArquivo(char *nomeArq, TInsumo *vCurso) //recebe o arquivo e o vet
   //abrindo arquivo:
   arq=fopen(nomeArq, "r");
   //testando se foi aberto:
-  if(!arq)
+  if(arq==NULL)
   {
     return 0;
   }
@@ -191,7 +191,7 @@ int adicionaCursos(char *nomeArq)
   //abrindo arquivo:
   arq=fopen(nomeArq, "w");
   //testando se foi aberto:
-  if(!arq)
+  if(arq==NULL)
   {
     return 0;
   }
