@@ -189,7 +189,7 @@ int adicionaCursos(char *nomeArq)
   char sContinua[3]="sim", sEscreve[10];
   FILE *arq;
   //abrindo arquivo:
-  arq=fopen(nomeArq, "w");
+  arq=fopen(nomeArq, "a");
   //testando se foi aberto:
   if(arq==NULL)
   {
