@@ -25,7 +25,7 @@ int transcreveArquivo(char *nomeArq, TInsumo *vCurso) //recebe o arquivo e o vet
   //abrindo arquivo:
   arq=fopen(nomeArq, "r");
   //testando se foi aberto:
-  if(!arq)
+  if(arq)
   {
     return 0;
   }
