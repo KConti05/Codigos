@@ -7,7 +7,7 @@ INSERT INTO manutencao(id_carro,data_entrada,data_saida,valor,descricao_servicos
 
 SELECT id_carro,data_entrada,data_saida,descricao_servicos FROM manutencao WHERE valor>50.00;
 
-UPDATE FROM manutencao
+UPDATE manutencao
 SET data_saida="2025-12-08 12:31:00"
 SET valor=250.00
 SET descricao_servicos="revisão+troca de suspensão"
