@@ -4,7 +4,7 @@ INSERT INTO loja(nome,endereco,cidade,uf,telefone) VALUES ("Loja Suvaco Seco","R
 
 SELECT id FROM loja WHERE uf="RS";
 
-UPDATE FROM loja
+UPDATE loja
 SET endereco="Rua Projeto SB, numero 413"
 WHERE id=1;
 
