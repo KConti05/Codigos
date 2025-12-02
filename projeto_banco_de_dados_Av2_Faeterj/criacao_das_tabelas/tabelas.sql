@@ -63,6 +63,7 @@ CREATE TABLE manutencao (
   id_carro INT NOT NULL,
   data_entrada DATETIME NOT NULL,
   data_saida DATETIME NOT NULL COMMENT 'armazenar data de saida prevista, caso atrase, atualizar',
+  valor DECIMAL(10,2) NOT NULL,
   descricao_servicos TEXT NOT NULL,
   FOREIGN KEY (id_carro) REFERENCES carro(id)
 );
