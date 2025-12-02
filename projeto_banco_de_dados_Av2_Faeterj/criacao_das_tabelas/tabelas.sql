@@ -108,6 +108,7 @@ CREATE TABLE pagamento (
   id_cliente INT NOT NULL,
   data_pagamento DATETIME,
   valor_pago DECIMAL(10,2) NOT NULL,
+  num_parcelas INT NOT NULL,
   status VARCHAR(20) NOT NULL COMMENT 'pendente, confirmado, cancelado',
   FOREIGN KEY (id_cliente) REFERENCES cliente(id)
 );
