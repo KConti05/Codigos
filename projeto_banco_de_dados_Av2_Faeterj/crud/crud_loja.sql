@@ -1,6 +1,6 @@
 USE falls_car;
 
-INSERT INTO loja(nome,endereco,cidade,uf,telefone) VALUES ("Loja Suvaco Seco","Rua SB, numero 413","Carpazinha","RS");
+INSERT INTO loja(nome,endereco,cidade,uf,telefone) VALUES ("Loja Suvaco Seco","Rua SB, numero 413","Carpazinha","RS","21941300413");
 
 SELECT id FROM loja WHERE uf="RS";
 
