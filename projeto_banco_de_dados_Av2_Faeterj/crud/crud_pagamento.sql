@@ -9,12 +9,16 @@ INSERT INTO carro(id_modelo,id_loja,placa,automatico,valor,status) VALUES (1,1,"
 INSERT INTO seguro(nome,cobert_avariada,cobert_perda_total,compensacao_CO2,valor) VALUES ("Seguro Padrão",TRUE,TRUE,TRUE,59.99);
 INSERT INTO locacao(id_cliente,id_motorista,id_carro,id_loja_retirada,id_loja_devolucao,id_seguro,data_locacao,data_devolucao,motorista_aparte,status,valor_total,canal)
   VALUES(1,1,1,1,1,1,"2025-12-01 12:00:00","2025-12-16 12:00:00",TRUE,"reservada",4176.59,"balcão");
-INSERT INTO pagamento(id_cliente) VALUES (1);
+INSERT INTO pagamento(id_cliente,data_pagamento,valor_pago,num_parcelas,status) VALUES (1,"2025-11-29 21:53:42",4176.59,4,"pendente");
 INSERT INTO locacaoPagamento(id_pagamento,id_locacao) VALUES (1,1);
 
 SELECT pagamento.id_cliente,locacaoPagamento.id_locacao
 FROM pagamento
 JOIN locacaoPagamento on pagamento.id=locacaoPagamento.id_pagamento;
+
+UPDATE pagamento
+SET status="confirmado"
+WHERE id=1;
 
 DELETE FROM pagamento WHERE id=1;
 DELETE FROM locacaoPagamento WHERE id=1;
