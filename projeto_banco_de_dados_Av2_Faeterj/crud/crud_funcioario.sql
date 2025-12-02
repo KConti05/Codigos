@@ -5,7 +5,7 @@ INSERT INTO funcionario(nome,cpf,email,senha_hash,funcao)
 
 SELECT id,nome,email FROM funcionario WHERE funcao="professor de 3POB";
 
-UPDATE funcioario
+UPDATE funcionario
 SET cpf="00000000010"
 WHERE id=1;
 
