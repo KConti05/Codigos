@@ -12,7 +12,7 @@ INSERT INTO locacao(id_cliente,id_motorista,id_carro,id_loja_retirada,id_loja_de
 
 SELECT * FROM locacao WHERE status="reservada";
 
-UPDATE FROM locacao
+UPDATE locacao
 SET status="ocorrendo"
 WHERE id=1;
 
