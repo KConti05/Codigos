@@ -6,7 +6,7 @@ INSERT INTO motorista(id_funcionario,nome,cnh,diaria) VALUES (1,"Wagner Zanco","
 
 SELECT * FROM motorista WHERE id=1;
 
-UPDATE FROM motorista
+UPDATE motorista
 SET id_funcionario=2,nome="Eduardo Barreto",cnh="00000000030",diaria=169.98)
 WHERE id=1;
 
