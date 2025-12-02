@@ -4,7 +4,7 @@ INSERT INTO modelo(nome,marca,ano,categoria,preco_padrao) VALUES ("Onix","Chevro
 
 SELECT * FROM modelo WHERE categoria="Sedan";
 
-UPDATE FROM modelo
+UPDATE modelo
 SET preco_padrao=preco_padrao+100.00
 WHERE categoria="Sedan";
 
