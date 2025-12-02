@@ -6,7 +6,7 @@ INSERT INTO carro(id_modelo,id_loja,placa,automatico,valor,status) VALUES (1,1,"
 
 SELECT placa,automatico,valor FROM carro WHERE status="livre";
 
-UPDATE FROM carro
+UPDATE carro
 SET status="alocado"
 WHERE placa="ABC1234";
 
