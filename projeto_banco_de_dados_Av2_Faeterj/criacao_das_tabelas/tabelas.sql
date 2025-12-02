@@ -3,7 +3,7 @@ USE falls_car;
 CREATE TABLE cliente (
   id INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
-  cpf_cnpj VARCHAR(14) NOT NULL, --varchar(14) para poder receber cpf e cnpj
+  cpf_cnpj VARCHAR(14) NOT NULL, -- varchar(14) para poder receber cpf e cnpj
   email VARCHAR(100) NOT NULL,
   senha_hash VARCHAR(20) NOT NULL,
   cnh CHAR(11) NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE seguro (
   cobert_perda_total BOOLEAN DEFAULT FALSE COMMENT 'perda total do veiculo',
   cobert_dano_terc BOOLEAN DEFAULT FALSE COMMENT'danos de terceiros ao veiculo',
   cobert_furto_roubo BOOLEAN DEFAULT FALSE COMMENT 'furto e roubo do veiculo',
-  cobert_vidro_pneus BOOLEAN DEFAULT FALSE COMMENT 'vidros e pneus do veiculo'
+  cobert_vidro_pneus BOOLEAN DEFAULT FALSE COMMENT 'vidros e pneus do veiculo',
   compensacao_CO2 BOOLEAN DEFAULT FALSE COMMENT 'compencação de emissão de CO2',
   inc_limpeza BOOLEAN DEFAULT FALSE COMMENT 'limpeza do veiculo inclusa',
   valor DECIMAL(10,2) NOT NULL
@@ -92,7 +92,7 @@ CREATE TABLE locacao (
   data_locacao DATETIME NOT NULL,
   data_devolucao DATETIME NOT NULL COMMENT 'armazenar data prevista, caso atrase atualizar',
   motorista_aparte BOOLEAN DEFAULT FALSE COMMENT 'se o motorista nao for o contratante, TRUE',
-  status VARCHAR(50) NOT NULL COMENT 'reservada, ocorrendo, em atraso, finalizada',
+  status VARCHAR(50) NOT NULL COMMENT 'reservada, ocorrendo, em atraso, finalizada',
   valor_total DECIMAL(10,2) NOT NULL,
   canal VARCHAR(50) NOT NULL COMMENT 'recepção ou site',
   FOREIGN KEY (id_cliente) REFERENCES cliente(id),
